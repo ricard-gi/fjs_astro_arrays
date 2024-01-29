@@ -1,0 +1,13 @@
+---
+import marques from '../../data/marques.js';
+import Layout from '../../layouts/Layout.astro';
+import MarcaLogo from '../../components/MarcaLogo.astro';
+---
+
+<Layout titol="Inici">
+
+    <div class="grid grid-cols-5 gap-3">
+        {marques.map(e => <MarcaLogo marca={e.marca.toLowerCase()} logo={e.logo} />)}
+
+    </div>
+</Layout>

@@ -1,0 +1,12 @@
+---
+
+const {marca,logo} = Astro.props;
+
+---
+
+
+<h1>DETALL MARCA</h1>
+<div class="w-1/4 border border-red-500 p-1 rounded-md">
+    <img src={'/img/'+logo} alt={marca} />
+    <h1 class="text-center">{marca}</h1>
+</div>

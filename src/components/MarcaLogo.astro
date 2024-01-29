@@ -1,0 +1,13 @@
+---
+
+const {marca,logo} = Astro.props;
+
+---
+
+
+<a href={"/motos/"+marca}>
+    <div class="border border-red-500 p-1 rounded-md">
+        <img src={'/img/'+logo} alt={marca} />
+        <h1 class="text-center">{marca}</h1>
+    </div>
+</a>
