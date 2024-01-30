@@ -13,7 +13,8 @@ const {titol} = Astro.props;
 		<title>{titol}</title>
 	</head>
 	<body class="p-10">
-		<h1>{titol}</h1>
+		<h1 class="text-center text-2xl">{titol}</h1>
+        <hr class="mb-4" />
         <slot />
 	</body>
 </html>

@@ -1,30 +1,37 @@
 ---
+import MarcaDetall from "../../components/MarcaDetall.astro";
+import Tornar from "../../components/Tornar.astro";
+import marques from "../../data/marques.js";
+import motos from "../../data/motos.js";
+import Layout from "../../layouts/Layout.astro";
 
-import MarcaDetall from '../../components/MarcaDetall.astro';
-import marques from '../../data/marques.js';
-import motos from '../../data/motos.js';
-
-const { marca } = Astro.params
-const { logo } = Astro.props
+const { marca } = Astro.params;
+const { logo } = Astro.props;
 
 export async function getStaticPaths() {
-  return marques.map(e => {
+    return marques.map((e) => {
         const ob = {
-            params : {marca: e.marca.toLowerCase()},
-            props: { logo: e.logo}
-        }
+            params: { marca: e.marca.toLowerCase() },
+            props: { logo: e.logo },
+        };
         return ob;
-  }) 
+    });
 }
-  //  { params: { post: 'test' },  props:{ coloret: "red", titol:"color vermell"} },
-
+//  { params: { post: 'test' },  props:{ coloret: "red", titol:"color vermell"} },
 ---
 
-<MarcaDetall marca={marca} logo={logo} />
-
-MODELS
-<ul>
-    {motos.filter(e => e.marca.toLowerCase()===marca.toLowerCase()).map(e => <li>{e.model}</li>)}
-</ul>
-
-
+<Layout titol={marca}>
+    <Tornar url="/motos" />
+    <MarcaDetall marca={marca} logo={logo} />
+    <br />
+    <br />
+    <br />
+    <h1>Models</h1>
+    <ul>
+        {
+            motos
+                .filter((e) => e.marca.toLowerCase() === marca.toLowerCase())
+                .map((e) => <li>{e.model}</li>)
+        }
+    </ul>
+</Layout>
