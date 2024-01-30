@@ -6,13 +6,13 @@ import Tornar from '../../components/Tornar.astro';
 ---
 
 
-
-
 <Layout titol="Motos">
     <Tornar url="/" />
 
     <div class="grid grid-cols-5 gap-3">
-        {marques.map(e => <MarcaLogo marca={e.marca.toLowerCase()} logo={e.logo} />)}
+        <MarcaLogo marca="APRILIA" logo="aprilia.jpg" />
+        <MarcaLogo marca="DUCATI" logo="ducati.jpg" />
+        <MarcaLogo marca="GILERA" logo="gilera.png" />
 
     </div>
 </Layout>

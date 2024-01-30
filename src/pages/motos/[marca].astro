@@ -9,15 +9,12 @@ const { marca } = Astro.params;
 const { logo } = Astro.props;
 
 export async function getStaticPaths() {
-    return marques.map((e) => {
-        const ob = {
-            params: { marca: e.marca.toLowerCase() },
-            props: { logo: e.logo },
-        };
-        return ob;
-    });
+    return [
+        { params: { marca: 'APRILIA' },  props:{ logo: "aprilia.jpg"} },
+        { params: { marca: 'DUCATI' },  props:{ logo: "ducati.jpg"} },
+        { params: { marca: 'GILERA' },  props:{ logo: "gilera.png"} },
+    ]
 }
-//  { params: { post: 'test' },  props:{ coloret: "red", titol:"color vermell"} },
 ---
 
 <Layout titol={marca}>
